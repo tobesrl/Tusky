@@ -1,0 +1,65 @@
+{
+  "projects": [
+    {
+      "id": 1,
+      "title": "Tusky",
+      "description": "Una gestione progetti da paura"
+    },
+    {
+      "id": 2,
+      "title": "Stocaz",
+      "description": "Una gestione progetti da paura"
+    },
+    {
+      "id": 3,
+      "title": "Stocaz",
+      "description": "Una gestione progetti da paura"
+    },
+    {
+      "id": 4,
+      "title": "Stocaz",
+      "description": "Una gestione progetti da paura"
+    },
+    {
+      "id": 5,
+      "title": "Stocaz",
+      "description": "Una gestione progetti da paura"
+    },
+    {
+      "id": 6,
+      "title": "Stocaz",
+      "description": "Una gestione progetti da paura"
+    },
+    {
+      "id": 7,
+      "title": "Stocaz",
+      "description": "Una gestione progetti da paura"
+    },
+    {
+      "id": 8,
+      "title": "Stocaz",
+      "description": "Una gestione progetti da paura"
+    },
+    {
+      "id": 9,
+      "title": "Stocaz",
+      "description": "Una gestione progetti da paura"
+    }
+  ],
+  "tasks": [
+    {
+      "id": 1,
+      "title": "Autenticazione",
+      "description": "Bisogna fare cose cose cose",
+      "completed": true,
+      "projectId": 1
+    },
+    {
+      "id": 2,
+      "title": "Deploy",
+      "description": "Bisogna fare cose cose cose",
+      "completed": false,
+      "projectId": 1
+    }
+  ]
+}
