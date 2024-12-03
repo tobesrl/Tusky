@@ -1,4 +1,5 @@
 import { Task } from "@/api/types";
+import { FontAwesome, Ionicons } from "@expo/vector-icons";
 import React from "react";
 import {
   FlatList,
@@ -9,12 +10,10 @@ import {
   type FlatListProps,
 } from "react-native";
 import { ThemedText } from "../ThemedText";
-import { ThemedView } from "../ThemedView";
-import { Collapsible } from "../Collapsible";
-import { Ionicons } from "@expo/vector-icons";
 
 type TaskFlatListProps = Omit<FlatListProps<Task>, "renderItem"> & {
   onPressItem: (item: Task) => void;
+  createNewItem: () => void;
 };
 
 const Separator: React.FC = () => <View style={style.separator} />;
@@ -22,6 +21,7 @@ const Separator: React.FC = () => <View style={style.separator} />;
 export const TaskFlatList: React.FC<TaskFlatListProps> = ({
   data,
   onPressItem,
+  createNewItem,
   ...props
 }) => {
   const renderProjects: ListRenderItem<Task> = ({ item }) => (
@@ -33,7 +33,23 @@ export const TaskFlatList: React.FC<TaskFlatListProps> = ({
         />
       </ThemedText>
       <ThemedText>{item.title}</ThemedText>
+      <View style={{ position: "absolute", right: 10 }}>
+        <ThemedText>
+          <Ionicons name="pencil-outline" size={20} />
+        </ThemedText>
+      </View>
     </TouchableOpacity>
+  );
+
+  const header = () => (
+    <View style={{ alignItems: "center" }}>
+      <TouchableOpacity style={style.header} onPress={createNewItem}>
+        <ThemedText>
+          <FontAwesome name="plus-square" size={20} />
+        </ThemedText>
+        <ThemedText>Add new task</ThemedText>
+      </TouchableOpacity>
+    </View>
   );
 
   return (
@@ -43,6 +59,7 @@ export const TaskFlatList: React.FC<TaskFlatListProps> = ({
       style={style.wrapper}
       ItemSeparatorComponent={Separator}
       contentContainerStyle={style.content}
+      ListHeaderComponent={header}
       {...props}
     />
   );
@@ -62,5 +79,16 @@ const style = StyleSheet.create({
   separator: {
     height: 1,
     backgroundColor: "#222",
+  },
+  header: {
+    borderWidth: 2,
+    borderColor: "#ccc",
+    borderRadius: 10,
+    paddingHorizontal: 15,
+    paddingVertical: 5,
+    alignItems: "center",
+    gap: 15,
+    justifyContent: "center",
+    flexDirection: "row",
   },
 });

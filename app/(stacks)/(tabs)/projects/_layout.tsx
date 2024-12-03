@@ -11,6 +11,8 @@ export default function ProjectsLayout() {
 
   const canGoBack = React.useCallback(() => nav.canGoBack(), [path]);
 
+  const headerGoBack = false;
+
   return (
     <ParallaxScrollView
       headerBackgroundColor={{ light: "#D0D0D0", dark: "#353636" }}
@@ -38,7 +40,7 @@ export default function ProjectsLayout() {
               zIndex: 38948,
             }}
           >
-            {canGoBack() && (
+            {headerGoBack && canGoBack() && (
               <TouchableOpacity
                 onPress={() => nav.back()}
                 style={{

@@ -1,10 +1,8 @@
-import { Image, StyleSheet, Platform } from "react-native";
+import { Image, StyleSheet } from "react-native";
 
-import { HelloWave } from "@/components/HelloWave";
 import ParallaxScrollView from "@/components/ParallaxScrollView";
 import { ThemedText } from "@/components/ThemedText";
 import { ThemedView } from "@/components/ThemedView";
-import { useExpoRouter } from "expo-router/build/global-state/router-store";
 import { useRouter } from "expo-router";
 
 export default function SignInScreen() {

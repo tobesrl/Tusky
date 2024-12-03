@@ -1,9 +1,10 @@
 import { baseUrl } from "@/api/configs";
 import { Project } from "@/api/types";
+import ThemedCard from "@/components/ThemedCard";
 import { ThemedText } from "@/components/ThemedText";
 import { ThemedView } from "@/components/ThemedView";
-import { Slot } from "expo-router";
-import { useLocalSearchParams } from "expo-router/build/hooks";
+import { Link, Slot } from "expo-router";
+import { useLocalSearchParams, usePathname } from "expo-router/build/hooks";
 import React from "react";
 
 export default function ProjectIdStack() {
@@ -19,6 +20,8 @@ export default function ProjectIdStack() {
 
   React.useEffect(getPro, [projectId]);
 
+  const showAddTask = usePathname().includes("addTask");
+
   return (
     <ThemedView style={{ gap: 35 }}>
       <ThemedView>
@@ -27,7 +30,9 @@ export default function ProjectIdStack() {
       <ThemedView>
         <ThemedText>{project?.description}</ThemedText>
       </ThemedView>
-      <Slot />
+      <ThemedCard>
+        <Slot />
+      </ThemedCard>
     </ThemedView>
   );
 }

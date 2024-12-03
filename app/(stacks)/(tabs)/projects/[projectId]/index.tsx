@@ -36,13 +36,21 @@ const ProjectDetailScreen: React.FC = () => {
     );
   }
 
+  const navToNewTask = () => {
+    nav.push(`/(stacks)/(tabs)/projects/${projectId}/addTask`);
+  };
+
   return (
     <>
       <ThemedView>
         <ThemedText>ToDo List</ThemedText>
       </ThemedView>
       <ThemedView>
-        <TaskFlatList data={tasks} onPressItem={navToTask} />
+        <TaskFlatList
+          data={tasks}
+          onPressItem={navToTask}
+          createNewItem={navToNewTask}
+        />
       </ThemedView>
     </>
   );
